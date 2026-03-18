@@ -146,11 +146,7 @@ public final class AppLoader: ObservableObject {
 
     /// Automatically hides the loader after a timeout to prevent stuck states.
     private func scheduleAutoHide(timeout: TimeInterval = {
-        #if DEBUG
-        return 5
-        #else
-        return 30
-        #endif
+        return 60
     }()) {
         autoHideTask?.cancel()
         autoHideTask = Task { @MainActor in
